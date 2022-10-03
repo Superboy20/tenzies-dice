@@ -1,7 +1,20 @@
-import './App.css';
+import React from "react"
 import Die from "./Components/Die"
+import './App.css';
 
 function App() {
+
+  const [dice, setDice] = React.useState(ShuffleDice())
+
+  function ShuffleDice() {
+    const arrDice = Array.from({ length: 10 }, () => Math.floor(Math.random() * 6 + 1));
+    return arrDice;
+  }
+
+  console.log(ShuffleDice())
+
+  const randomizedDice = dice.map(die => <Die value={die} />)
+
   return (
     <div className='example'>
       <div id='stars'></div>
@@ -10,16 +23,7 @@ function App() {
       <div className="content-box">
         <main className="main-box">
           <div className="dice-box">
-            <Die value="1" />
-            <Die value="2" />
-            <Die value="3" />
-            <Die value="4" />
-            <Die value="5" />
-            <Die value="6" />
-            <Die value="1" />
-            <Die value="2" />
-            <Die value="3" />
-            <Die value="4" />
+            {randomizedDice}
           </div>
         </main>
       </div>
