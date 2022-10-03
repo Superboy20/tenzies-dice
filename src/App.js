@@ -24,8 +24,12 @@ function App() {
     setDice(shuffleDice())
   }
 
-  const randomizedDice = dice.map(die => (
-    <Die key="die.id" value={die.value} />
+  function holdDice(id) {
+    console.log(id)
+  }
+
+  const randomizedDiceElements = dice.map(die => (
+    <Die key="die.id" value={die.value} isHeld={die.isHeld} holdDice={() => holdDice(die.id)} />
   ))
 
   return (
@@ -36,7 +40,7 @@ function App() {
       <div className="content-box">
         <main className="main-box">
           <div className="dice-box">
-            {randomizedDice}
+            {randomizedDiceElements}
           </div>
           <button className="dice-button" onClick={rollDice}>Roll!</button>
         </main>
