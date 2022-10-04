@@ -9,12 +9,20 @@ function App() {
   const [tenzies, setTenzies] = React.useState(false)
 
   React.useEffect(() => {
+
+    // WIN CONDITION:
+
+    // heldDie returns true if all dice are held.
+    // diceVal takes and holds the first die's value.
+    // allSameVal checks the rest of the dice and see if they're equal with
+    // the first value.
+    // If statement checks whether or not all of the dice are held
+    // AND if they have the same value, if all is true, the game is won/over.
     const heldDie = dice.every(die => die.isHeld)
     const diceVal = dice[0].value
     const allSameVal = dice.every(die => die.value === diceVal)
     if (heldDie && allSameVal) {
       setTenzies(true)
-
     }
   }, [dice])
 
@@ -28,7 +36,8 @@ function App() {
 
   function shuffleDice() {
     const arrDice = []
-
+    // Pushes new unique dice into an array
+    // using the generateDice method
     for (let i = 0; i < 10; i++) {
       arrDice.push(generateDice())
     }
@@ -44,6 +53,8 @@ function App() {
           generateDice()
       }))
     } else {
+      // If tenzies is true and the game was won, set it to false
+      // generate new dice to start new game
       setTenzies(false)
       setDice(shuffleDice())
     }
