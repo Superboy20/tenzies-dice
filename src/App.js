@@ -7,25 +7,39 @@ function App() {
 
   const [dice, setDice] = React.useState(shuffleDice())
 
+  function generateDice() {
+    return {
+      value: Math.floor(Math.random() * 6 + 1),
+      isHeld: false,
+      id: nanoid()
+    }
+  }
+
   function shuffleDice() {
     const arrDice = []
 
     for (let i = 0; i < 10; i++) {
-      arrDice.push({
-        value: Math.floor(Math.random() * 6 + 1),
-        isHeld: false,
-        id: nanoid()
-      })
+      arrDice.push(generateDice())
     }
     return arrDice;
   }
 
+
   function rollDice() {
-    setDice(shuffleDice())
+    setDice(prevDice => prevDice.map(die => {
+      return die.isHeld ?
+        die :
+        generateDice()
+    }))
   }
 
   function holdDice(id) {
-    console.log(id)
+    // Gives access to the old dice/array
+    // Map looks at each die object, makes sure if the die has the same id
+    // that was passed in the function
+    setDice(prevDice => prevDice.map(die => {
+      return die.id === id ? { ...die, isHeld: !die.isHeld } : die
+    }))
   }
 
   const randomizedDiceElements = dice.map(die => (
@@ -39,6 +53,8 @@ function App() {
       <div id='stars3'></div>
       <div className="content-box">
         <main className="main-box">
+          <h1 className="title">Tenzies!</h1>
+          <p className="instructions">Roll all of the dice until they are the same, click each die to hold that value in between rolls!</p>
           <div className="dice-box">
             {randomizedDiceElements}
           </div>
