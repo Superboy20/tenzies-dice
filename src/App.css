@@ -59,8 +59,10 @@ main {
 }
 
 .dice-button {
-    height: 50px;
-    width: 125px;
+    padding: 8px;
+    margin-bottom: 10px;
+    height: 75px;
+    width: 175px;
     border: none;
     border-radius: 5px;
     background-color: #457b9d;
