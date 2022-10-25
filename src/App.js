@@ -7,6 +7,7 @@ function App() {
 
   const [dice, setDice] = React.useState(shuffleDice())
   const [tenzies, setTenzies] = React.useState(false)
+  const [counter, setCounter] = React.useState(0)
 
   React.useEffect(() => {
 
@@ -52,11 +53,14 @@ function App() {
           die :
           generateDice()
       }))
+      setCounter(counter + 1)
+
     } else {
       // If tenzies is true and the game was won, set it to false
       // generate new dice to start new game
       setTenzies(false)
       setDice(shuffleDice())
+      setCounter(0)
     }
   }
 
@@ -81,6 +85,7 @@ function App() {
       <div className="content-box">
         <main className="main-box">
           <h1 className="title">Tenzies!</h1>
+          <p className="rolls-performed"> Rolls: {counter} </p>
           <p className="instructions">{tenzies ? "You won!" : "Roll all of the dice until they are the same, click each die to hold that value in between rolls!"}</p>
           <div className="dice-box">
             {randomizedDiceElements}
