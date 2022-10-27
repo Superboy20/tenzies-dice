@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/tenzies-dice/static/css/main.594ed061.css",
+    "main.css": "/tenzies-dice/static/css/main.ec7834d9.css",
     "main.js": "/tenzies-dice/static/js/main.2bcc1aa2.js",
     "static/js/787.855e3260.chunk.js": "/tenzies-dice/static/js/787.855e3260.chunk.js",
     "index.html": "/tenzies-dice/index.html",
-    "main.594ed061.css.map": "/tenzies-dice/static/css/main.594ed061.css.map",
+    "main.ec7834d9.css.map": "/tenzies-dice/static/css/main.ec7834d9.css.map",
     "main.2bcc1aa2.js.map": "/tenzies-dice/static/js/main.2bcc1aa2.js.map",
     "787.855e3260.chunk.js.map": "/tenzies-dice/static/js/787.855e3260.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.594ed061.css",
+    "static/css/main.ec7834d9.css",
     "static/js/main.2bcc1aa2.js"
   ]
 }
